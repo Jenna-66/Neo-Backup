@@ -69,6 +69,7 @@ android {
 
     buildTypes {
         named("release") {
+            applicationIdSuffix = ".jenna"
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -76,16 +77,21 @@ android {
             isMinifyEnabled = true
         }
         named("debug") {
-            applicationIdSuffix = ".debug"
+            applicationIdSuffix = ".jenna.debug"
             isMinifyEnabled = false
         }
         create("neo") {
-            applicationIdSuffix = ".neo"
+            applicationIdSuffix = ".jenna.neo"
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+        }
+    }
+    android {
+        lint {
+            baseline = file("lint-baseline.xml")
         }
     }
     buildFeatures {
